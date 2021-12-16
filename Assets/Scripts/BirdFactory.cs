@@ -2,11 +2,15 @@ using UnityEngine;
 
 public class BirdFactory : Factory<Bird>
 {
-    private void Update()
+    [SerializeField] private Destructible destrFloor;
+   
+    private void Start()
     {
-        if(!Prefab)
-        {
-            GetNewInstance();
-        }
+        destrFloor.OnDestroy += InstanceBird;
     }
+    private void InstanceBird()
+    {
+            GetNewInstance();
+    }
+
 }

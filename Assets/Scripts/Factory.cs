@@ -12,6 +12,8 @@ public class Factory<T> : MonoBehaviour where T : MonoBehaviour
         Vector3 pos = new Vector3(pointToSpawn.position.x, pointToSpawn.position.y,
             pointToSpawn.position.z);
 
-        return Instantiate(prefab, pos, Quaternion.identity, positionParent);
+         prefab = Instantiate(prefab, pos, Quaternion.identity, positionParent);
+        prefab.gameObject.GetComponent<Bird>().enabled = true;
+        return prefab;
     }
 }
